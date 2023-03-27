@@ -9,3 +9,4 @@ driver.get("https://www.baidu.com/")
 
 # get current url
 print(driver.current_url)
+print(driver.current_url.split())
