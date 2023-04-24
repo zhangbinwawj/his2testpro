@@ -45,15 +45,15 @@ def new_report(testreport):
 
 if __name__ == '__main__':
     now = time.strftime("%Y-%m-%d %H_%M_%S")
-    filename = './reports/' + now + '_测试报告.html'
+    filename = 'D:/his2testpro/reports/' + now + '_测试报告.html'
     fp = open(filename, 'wb')
     runner = HTMLTestRunner(stream=fp,  # 报告文件名称
                             title='HIS系统自动化测试报告',  # 测试报告的名称
                             description='环境：windows 浏览器：Chrome')
     # 调用test_case文件夹下_sta.py文件
-    discover = unittest.defaultTestLoader.discover('./test_case',
+    discover = unittest.defaultTestLoader.discover('D:/his2testpro/test_case',
                                                    pattern='*_sta.py')
     runner.run(discover)  # 运行测试用例
     fp.close()  # 关闭生成的报告
-    file_path = new_report('./reports/')  # 查找生成的报告
+    file_path = new_report('D:/his2testpro/reports/')  # 查找生成的报告
     send_mail(file_path)  # 调用发邮件的模块
